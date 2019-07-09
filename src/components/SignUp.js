@@ -4,14 +4,35 @@ import { Link } from "react-router-dom";
 class SignUp extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      username: "",
+      email: "",
+      password: ""
+    };
   }
+
+  handleChange = ({ target: { name, value } }) => {
+    this.setState({
+      [name]: value
+    });
+  };
+  
+  handleClick = () => {
+    fetch('https://conduit.productionready.io/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ user: this.state })
+    })
+    .then(res => res.json())
+    .then(user => console.log(user))
+  }
+
   render() {
     return (
       <>
-        <div
-          className="has-text-centered column is-half is-offset-one-quarter"
-        >
+        <div className="has-text-centered column is-half is-offset-one-quarter">
           <h2>Sign up</h2>
           <Link className="is-primary" to="/signin">
             Have an account?
@@ -19,7 +40,13 @@ class SignUp extends Component {
 
           <div className="field">
             <p className="control has-icons-left has-icons-right">
-              <input className="input" type="text" placeholder="Username" />
+              <input
+                onChange={this.handleChange}
+                name="username"
+                className="input"
+                type="text"
+                placeholder="Username"
+              />
               <span className="icon is-small is-left">
                 <i className="fas fa-envelope" />
               </span>
@@ -28,7 +55,13 @@ class SignUp extends Component {
               </span>
             </p>
             <p className="control has-icons-left has-icons-right">
-              <input className="input" type="email" placeholder="Email" />
+              <input
+                onChange={this.handleChange}
+                name="email"
+                className="input"
+                type="email"
+                placeholder="Email"
+              />
               <span className="icon is-small is-left">
                 <i className="fas fa-envelope" />
               </span>
@@ -39,7 +72,13 @@ class SignUp extends Component {
           </div>
           <div className="field">
             <p className="control has-icons-left">
-              <input className="input" type="password" placeholder="Password" />
+              <input
+                onChange={this.handleChange}
+                name="password"
+                className="input"
+                type="password"
+                placeholder="Password"
+              />
               <span className="icon is-small is-left">
                 <i className="fas fa-lock" />
               </span>
@@ -47,7 +86,7 @@ class SignUp extends Component {
           </div>
           <div className="field">
             <p className="control">
-              <button className="button is-success">Login</button>
+              <button onClick = {this.handleClick} className="button is-success">Signup</button>
             </p>
           </div>
         </div>
