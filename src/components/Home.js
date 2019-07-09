@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Articles from './Articles';
 
 class Home extends Component {
   constructor(props) {
@@ -11,6 +12,9 @@ class Home extends Component {
         <div className="banner">
           <h1>conduit</h1>
           <p>A place to share your knowledge.</p>
+        </div>
+        <div className="articles">
+          <Articles/>
         </div>
       </>
     );
