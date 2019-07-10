@@ -5,6 +5,7 @@ class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user: null,
       username: "",
       email: "",
       password: ""
@@ -18,15 +19,22 @@ class SignUp extends Component {
   };
   
   handleClick = () => {
+    const { username, email, password } = this.state;
+    const data = { username, email, password };
     fetch('https://conduit.productionready.io/api/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ user: this.state })
+      body: JSON.stringify({ user: data })
     })
     .then(res => res.json())
-    .then(user => console.log(user))
+    .then(user => {
+      localStorage.setItem('token', user.token)
+      this.setState({
+        user: user
+      })
+    })
   }
 
   render() {

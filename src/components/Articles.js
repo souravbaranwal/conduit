@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./articles.scss";
 
 class Articles extends Component {
   constructor(props) {
@@ -17,26 +18,46 @@ class Articles extends Component {
     console.log(articles, "check articles");
     return (
       <>
-        <div>
-          {articles && articles.map((article, index) => {
-            return (
-                <div key={index} className="article">
+        <div className="columns">
+          <div className="column is-9 ">
+            <div className="feed-section">
+              <h4>Global Feed</h4>
+            </div>
+            <hr />
+            {articles &&
+              articles.map((article, index) => {
+                return (
+                  <div key={index} className="article">
                     <div className="infoBar">
-                        <div className="authorInfo">
-                            <div className="avatar">
-                                <img src={article.author.image} alt="avatar"/>
-                                <div className="info">
-                                    <h4>{article.author.username}</h4>
-                                    <p>{article.createdAt.substr(0, 10)}</p>
-                                </div>
-                            </div>
+                      <div className="authorInfo">
+                        <div className="avatar">
+                          <span>
+                            <img
+                              className="image is-64x64"
+                              src={article.author.image}
+                              alt="avatar"
+                            />
+                          </span>
+                          <span className="info">
+                            <h4>{article.author.username}</h4>
+                            <p>{article.createdAt.substr(0, 10)}</p>
+                          </span>
                         </div>
-                        <a class="button is-primary is-outlined">heart</a>
-
+                        <div className="contentBar">
+                          <h4>{article.title}</h4>
+                          <p>{article.description}</p>
+                        </div>
+                      </div>
+                      <a class="button is-primary is-outlined">
+                        <i class="fas fa-heart" />
+                        {article.favoritesCount}
+                      </a>
                     </div>
-                </div>
-            );
-          })}
+                  </div>
+                );
+              })}
+          </div>
+          <div className="column is-3 is-narrow">tags</div>
         </div>
       </>
     );
