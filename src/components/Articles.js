@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./articles.scss";
 import Tags from "./Tags";
+import Loader from "./Loader";
+
 
 class Articles extends Component {
   constructor(props) {
@@ -25,7 +27,7 @@ class Articles extends Component {
               <h4>Global Feed</h4>
             </div>
             <hr />
-            {articles &&
+            {articles ?
               articles.map((article, index) => {
                 return (
                   <div key={index} className="article">
@@ -56,9 +58,9 @@ class Articles extends Component {
                     </div>
                   </div>
                 );
-              })}
+              }) :  <Loader />}
           </div>
-          <div className="column is-3 is-narrow">
+          <div className="column is-2 ">
             <Tags />
           </div>
         </div>

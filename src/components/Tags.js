@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import Loader from "./Loader";
 
 class Tags extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tags: []
+      tags: null,
     };
   }
 
@@ -22,16 +23,22 @@ class Tags extends Component {
     console.log(tags);
     return (
       <>
-        <div>
-          {tags &&
-            tags.map((tag, index) => {
-              return (
-                <a className="button is-rounded is-small is-rounded" key={index}>
-                  {tag}
-                </a>
-              );
-            })}
-        </div>
+        <h4>Popular tags</h4>
+
+        {tags ? (
+          tags.map((tag, index) => {
+            return (
+              <a
+                className="button is-rounded is-small is-rounded is-dark"
+                key={index}
+              >
+                {tag}
+              </a>
+            );
+          })
+        ) : (
+          <Loader />
+        )}
       </>
     );
   }

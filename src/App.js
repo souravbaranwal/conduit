@@ -8,26 +8,50 @@ import Home from "./components/Home";
 import CreatePost from "./components/CreatePost";
 import Settings from "./components/Settings";
 import UserDisplay from "./components/UserDisplay";
-import Tags from "./components/Tags";
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/signin" component={SignIn} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/createpost" component={CreatePost} />
-          <Route exact path="/settings" component={Settings} />
-          <Route exact path="/user" component={UserDisplay} />
-          <Route exact path="/tags" component={Tags} />
-          <Route render={() => <p>Not found</p>} />
-          
-        </Switch>
-      </div>
-    </Router>
-  );
+import UserContext from "./UserContext";
+// import Tags from "./components/Tags";
+
+class App extends React.Component {
+  state = {
+    user: null
+  };
+  componentDidMount() {
+    if (localStorage.token) {
+      const token = localStorage.getItem("token");
+      fetch("https://conduit.productionready.io/api/user", {
+        headers: {
+          authorization: `Token ${token}`
+        }
+      })
+      .then(res => res.json())
+      .then(user => {
+        console.log(user, "user in cdm");
+        this.setState({ ...user });
+      });
+    }
+  }
+  render() {
+    console.log(this.state.user, 'checking user');
+    return (
+      <UserContext.Provider value={{ ...this.state }}>
+        <Router>
+          <div className="App">
+            <Nav />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/signin" component={SignIn} />
+              <Route exact path="/signup" component={SignUp} />
+              <Route exact path="/createpost" component={CreatePost} />
+              <Route exact path="/settings" component={Settings} />
+              <Route exact path="/user" component={UserDisplay} />
+              {/* <Route exact path="/tags" component={Tags} /> */}
+              <Route render={() => <p>Not found</p>} />
+            </Switch>
+          </div>
+        </Router>
+      </UserContext.Provider>
+    );
+  }
 }
 
 export default App;

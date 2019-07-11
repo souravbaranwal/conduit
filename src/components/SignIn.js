@@ -29,10 +29,12 @@ class SignIn extends Component {
     })
     .then(res => res.json())
     .then(user => {
-      localStorage.setItem('token', user.token)
+      console.log(user, 'checking if user localstorage');
+      localStorage.setItem('token', user.user.token)
       this.setState({
         user: user
-      })
+      });
+      this.props.history.push("/")
     })
   }
 
