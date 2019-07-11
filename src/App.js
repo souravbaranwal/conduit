@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import CreatePost from "./components/CreatePost";
 import Settings from "./components/Settings";
 import UserDisplay from "./components/UserDisplay";
+import Tags from "./components/Tags";
 function App() {
   return (
     <Router>
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/createpost" component={CreatePost} />
           <Route exact path="/settings" component={Settings} />
           <Route exact path="/user" component={UserDisplay} />
+          <Route exact path="/tags" component={Tags} />
           <Route render={() => <p>Not found</p>} />
           
         </Switch>

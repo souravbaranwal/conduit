@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./articles.scss";
+import Tags from "./Tags";
 
 class Articles extends Component {
   constructor(props) {
@@ -57,7 +58,9 @@ class Articles extends Component {
                 );
               })}
           </div>
-          <div className="column is-3 is-narrow">tags</div>
+          <div className="column is-3 is-narrow">
+            <Tags />
+          </div>
         </div>
       </>
     );
