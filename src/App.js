@@ -40,10 +40,10 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/signin" component={SignIn} />
-              <Route exact path="/signup" component={SignUp} />
-              <Route exact path="/createpost" component={CreatePost} />
-              <Route exact path="/settings" component={Settings} />
-              <Route exact path="/user" component={UserDisplay} />
+              <Route path="/signup" component={SignUp} />
+              <Route path="/createpost" component={CreatePost} />
+              <Route path="/settings" component={Settings} />
+              <Route path="/user" component={UserDisplay} />
               {/* <Route exact path="/tags" component={Tags} /> */}
               <Route render={() => <p>Not found</p>} />
             </Switch>
