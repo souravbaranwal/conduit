@@ -17,7 +17,6 @@ class Articles extends Component {
 
   render() {
     const { articles } = this.state.articles;
-    console.log(articles, "check articles");
     return (
       <>
         <div className="columns">

@@ -5,7 +5,7 @@ class Tags extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tags: null,
+      tags: null
     };
   }
 
@@ -20,7 +20,6 @@ class Tags extends Component {
   };
   render() {
     const { tags } = this.state;
-    console.log(tags);
     return (
       <>
         <h4>Popular tags</h4>
