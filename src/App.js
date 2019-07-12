@@ -33,7 +33,7 @@ class App extends React.Component {
   render() {
     console.log(this.state.user, 'checking user');
     return (
-      <UserContext.Provider value={{ ...this.state }}>
+      <UserContext.Provider value={this.state.user}>
         <Router>
           <div className="App">
             <Nav />
