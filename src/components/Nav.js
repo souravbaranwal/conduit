@@ -69,12 +69,6 @@ class Nav extends Component {
       isLoggedIn: false
     };
   }
-  componentDidMount() {
-    console.log("called in Nav Component");
-  }
-  componentDidUpdate(prevProps, prevState) {
-    console.log("called in componentdidupdate");
-  }
 
   render() {
     return (
