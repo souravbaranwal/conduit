@@ -13,7 +13,7 @@ import UserContext from "./UserContext";
 
 class App extends React.Component {
   state = {
-    user: undefined
+    user: null
   };
   componentDidMount() {
     if (localStorage.token) {

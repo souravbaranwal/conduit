@@ -69,16 +69,10 @@ class Nav extends Component {
       isLoggedIn: false
     };
   }
+  static contextType = UserContext;
 
   render() {
-    return (
-      <UserContext.Consumer>
-        {({ user }) => {
-          console.log(user);
-          return user ? <LoggedInNav /> : <LoggedOutNav />;
-        }}
-      </UserContext.Consumer>
-    );
+    return this.context.user ? <LoggedInNav /> : <LoggedOutNav />;
   }
 }
 
