@@ -41,11 +41,10 @@ const LoggedInNav = () => (
           >
             user
           </NavLink>
-          {console.log("isTHere")}
-        </div>
-      </div>
     </div>
-  </div>
+    </div>
+    </div>
+    </div>
 );
 
 const LoggedOutNav = () => (
@@ -79,7 +78,6 @@ const LoggedOutNav = () => (
           >
             Sign Up
           </NavLink>
-          {console.log("notTHere")}
         </div>
       </div>
     </div>
@@ -89,17 +87,14 @@ const LoggedOutNav = () => (
 class Nav extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isLoggedIn: false
+    };
   }
+  static contextType = UserContext;
+
   render() {
-    return (
-      <UserContext.Consumer>
-        {user => {
-          console.log(user, "localStorage");
-          return user ? <LoggedInNav /> : <LoggedOutNav />;
-        }}
-      </UserContext.Consumer>
-    );
+    return this.context.user ? <LoggedInNav /> : <LoggedOutNav />;
   }
 }
 
