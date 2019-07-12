@@ -23,15 +23,13 @@ class App extends React.Component {
           authorization: `Token ${token}`
         }
       })
-      .then(res => res.json())
-      .then(user => {
-        console.log(user, "user in cdm");
-        this.setState({ ...user });
-      });
+        .then(res => res.json())
+        .then(user => {
+          this.setState({ ...user });
+        });
     }
   }
   render() {
-    console.log(this.state.user, 'checking user');
     return (
       <UserContext.Provider value={this.state.user}>
         <Router>

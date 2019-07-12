@@ -3,7 +3,7 @@ import React from "react";
 const Loader = () => {
   return (
     <div className="columns is-centered">
-      <div class="lds-ellipsis">
+      <div className="lds-ellipsis">
         <div />
         <div />
         <div />

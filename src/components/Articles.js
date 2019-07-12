@@ -3,7 +3,6 @@ import "./articles.scss";
 import Tags from "./Tags";
 import Loader from "./Loader";
 
-
 class Articles extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +26,7 @@ class Articles extends Component {
               <h4>Global Feed</h4>
             </div>
             <hr />
-            {articles ?
+            {articles ? (
               articles.map((article, index) => {
                 return (
                   <div key={index} className="article">
@@ -51,14 +50,17 @@ class Articles extends Component {
                           <p>{article.description}</p>
                         </div>
                       </div>
-                      <a class="button is-primary is-outlined">
-                        <i class="fas fa-heart" />
+                      <a className="button is-primary is-outlined">
+                        <i className="fas fa-heart" />
                         {article.favoritesCount}
                       </a>
                     </div>
                   </div>
                 );
-              }) :  <Loader />}
+              })
+            ) : (
+              <Loader />
+            )}
           </div>
           <div className="column is-2 ">
             <Tags />
