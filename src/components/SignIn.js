@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../UserContext";
 
 class SignIn extends Component {
   constructor(props) {
@@ -10,33 +11,33 @@ class SignIn extends Component {
       password: ""
     };
   }
+  static contextType = UserContext;
   handleChange = ({ target: { name, value } }) => {
     this.setState({
       [name]: value
     });
   };
 
-
   handleClick = () => {
     const { email, password } = this.state;
     const data = { email, password };
-    fetch('https://conduit.productionready.io/api/users/login', {
-      method: 'POST',
+    fetch("https://conduit.productionready.io/api/users/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ user: data })
     })
-    .then(res => res.json())
-    .then(user => {
-      console.log(user, 'checking if user localstorage');
-      localStorage.setItem('token', user.user.token)
-      this.setState({
-        user: user
+      .then(res => res.json())
+      .then(user => {
+        localStorage.setItem("token", user.user.token);
+        this.setState({
+          user: user
+        });
+        this.context.updateUser(user);
+        this.props.history.push("/");
       });
-      this.props.history.push("/")
-    })
-  }
+  };
 
   render() {
     return (
@@ -47,40 +48,40 @@ class SignIn extends Component {
             Need an account?
           </Link>
 
-          <div class="field">
-            <p class="control has-icons-left has-icons-right">
+          <div className="field">
+            <p className="control has-icons-left has-icons-right">
               <input
                 onChange={this.handleChange}
                 name="email"
-                class="input"
+                className="input"
                 type="email"
                 placeholder="Email"
               />
-              <span class="icon is-small is-left">
-                <i class="fas fa-envelope" />
+              <span className="icon is-small is-left">
+                <i className="fas fa-envelope" />
               </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-check" />
+              <span className="icon is-small is-right">
+                <i className="fas fa-check" />
               </span>
             </p>
           </div>
-          <div class="field">
-            <p class="control has-icons-left">
+          <div className="field">
+            <p className="control has-icons-left">
               <input
                 onChange={this.handleChange}
                 name="password"
-                class="input"
+                className="input"
                 type="password"
                 placeholder="Password"
               />
-              <span class="icon is-small is-left">
-                <i class="fas fa-lock" />
+              <span className="icon is-small is-left">
+                <i className="fas fa-lock" />
               </span>
             </p>
           </div>
-          <div class="field">
-            <p class="control">
-              <button onClick={this.handleClick} class="button is-success">
+          <div className="field">
+            <p className="control">
+              <button onClick={this.handleClick} className="button is-success">
                 Login
               </button>
             </p>

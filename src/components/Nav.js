@@ -19,7 +19,6 @@ const LoggedInNav = () => (
           >
             Home
           </NavLink>
-          {console.log("isTHere")}
         </div>
       </div>
     </div>
@@ -57,7 +56,6 @@ const LoggedOutNav = () => (
           >
             Sign Up
           </NavLink>
-          {console.log("notTHere")}
         </div>
       </div>
     </div>
@@ -71,11 +69,19 @@ class Nav extends Component {
       isLoggedIn: false
     };
   }
+  componentDidMount() {
+    console.log("called in Nav Component");
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log("called in componentdidupdate");
+  }
+
   render() {
     return (
       <UserContext.Consumer>
-        {user => {
+        {({ user }) => {
           console.log(user);
+          return user ? <LoggedInNav /> : <LoggedOutNav />;
         }}
       </UserContext.Consumer>
     );

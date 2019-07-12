@@ -13,7 +13,7 @@ import UserContext from "./UserContext";
 
 class App extends React.Component {
   state = {
-    user: null
+    user: undefined
   };
   componentDidMount() {
     if (localStorage.token) {
@@ -29,9 +29,14 @@ class App extends React.Component {
         });
     }
   }
+  updateUser = user => {
+    this.setState({ user });
+  };
   render() {
     return (
-      <UserContext.Provider value={this.state.user}>
+      <UserContext.Provider
+        value={{ user: this.state.user, updateUser: this.updateUser }}
+      >
         <Router>
           <div className="App">
             <Nav />
