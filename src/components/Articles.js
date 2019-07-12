@@ -49,7 +49,7 @@ class Articles extends Component {
                           <p>{article.description}</p>
                         </div>
                       </div>
-                      <a className="button is-primary is-outlined">
+                      <a href="/#" className="button is-primary is-outlined">
                         <i className="fas fa-heart" />
                         {article.favoritesCount}
                       </a>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Articles from './Articles';
-import Nav from "./Nav";
 
 class Home extends Component {
   constructor(props) {

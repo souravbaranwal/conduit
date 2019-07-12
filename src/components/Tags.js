@@ -30,6 +30,7 @@ class Tags extends Component {
               <a
                 className="button is-rounded is-small is-rounded is-dark"
                 key={index}
+                href="/#"
               >
                 {tag}
               </a>

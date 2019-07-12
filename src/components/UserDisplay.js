@@ -18,20 +18,21 @@ class UserDisplay extends Component {
             />
 
             <h3>User Name Here</h3>
-            <a className="button is-light is-pulled-right">
+
+            <button className="button is-primary is-pulled-right">
               Edit Profile Settings
-            </a>
+            </button>
           </div>
         </div>
         <div className="column ">
           <div className="tabs">
             <ul>
               <li className="is-active">
-                <a>My Articles</a>
+                <a href="/#">My Articles</a>
               </li>
-              
+
               <li>
-                <a>Favorited Articles</a>
+                <a href="/#">Favorited Articles</a>
               </li>
             </ul>
           </div>
