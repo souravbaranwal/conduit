@@ -1,21 +1,27 @@
 import React, { Component } from "react";
 import "./userDisplay.scss";
+import UserContext from "../UserContext";
 
 class UserDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
+  static contextType = UserContext;
+
   render() {
+    const user = this.context.user;
+    console.log(user, "this is the user");
     return (
       <>
         <div className=" userDisplay" style={{ marginTop: "50px" }}>
           <div className="has-text-centered">
-            <img
-              className="userImage"
-              src="https://bulma.io/images/placeholders/128x128.png"
-              alt="profileImage"
-            />
+            {user !== null ? (
+              <img className="userImage" src={user.image} alt="profileImage" />
+            ) : (
+              ""
+            )}
 
             <h3>User Name Here</h3>
 

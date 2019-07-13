@@ -9,6 +9,8 @@ import CreatePost from "./components/CreatePost";
 import Settings from "./components/Settings";
 import UserDisplay from "./components/UserDisplay";
 import UserContext from "./UserContext";
+// import PrivateRoute from "./components/PrivateRoute";
+
 // import Tags from "./components/Tags";
 
 class App extends React.Component {
