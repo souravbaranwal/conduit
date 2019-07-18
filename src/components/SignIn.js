@@ -43,7 +43,7 @@ class SignIn extends Component {
   render() {
     return (
       <>
-        <div className="has-text-centered column is-half is-offset-one-quarter">
+        <div className="container has-text-centered column is-half is-offset-one-quarter">
           <h2>Sign in</h2>
           <Link className="is-primary" to="/signup">
             Need an account?
