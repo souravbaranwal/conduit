@@ -17,6 +17,7 @@ class Articles extends Component {
 
   render() {
     const { articles } = this.state.articles;
+    console.log(articles);
     return (
       <>
         <div className="columns">
@@ -87,21 +88,22 @@ class Articles extends Component {
                       <article class="media">
                         <div class="media-left">
                           <figure class="image is-64x64">
-                            <img
-                              src={article.author.image}
-                              alt="authorImage"
-                            />
+                            <img src={article.author.image} alt="authorImage" />
                           </figure>
                         </div>
                         <div class="media-content">
                           <div class="content">
-                            <p>
+                            <p className=" is-marginless">
                               <strong>{article.author.username}</strong>{" "}
-                              <small>at</small> <small>{article.createdAt.substr(0, 10)}</small>
+                              <small>at</small>{" "}
+                              <small>{article.createdAt.substr(0, 10)}</small>
                               <br />
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Aenean efficitur sit amet massa fringilla
-                              egestas. Nullam condimentum luctus turpis.
+                            </p>
+                            <p className="is-size-4  is-marginless">
+                              {article.title}
+                            </p>
+                            <p className="is-size-6" is-marginless>
+                              {article.description}
                             </p>
                           </div>
                           {/* <nav class="level is-mobile">
