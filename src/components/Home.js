@@ -16,11 +16,11 @@ class Home extends Component {
         <div className="articles">
           <Articles/>
         </div> */}
-        <section class="hero is-primary">
-          <div class="hero-body">
-            <div class="container">
-              <h1 class="title">conduit</h1>
-              <h2 class="subtitle">A place to share your knowledge.</h2>
+        <section className="hero is-primary">
+          <div className="hero-body">
+            <div className="container">
+              <h1 className="title">conduit</h1>
+              <h2 className="subtitle">A place to share your knowledge.</h2>
             </div>
           </div>
         </section>
