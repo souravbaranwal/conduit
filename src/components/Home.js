@@ -9,13 +9,6 @@ class Home extends Component {
   render() {
     return (
       <>
-        {/* <div className="banner hero">
-          <h1>conduit</h1>
-          <p>A place to share your knowledge.</p>
-        </div>
-        <div className="articles">
-          <Articles/>
-        </div> */}
         <section className="hero is-primary">
           <div className="hero-body">
             <div className="container">
