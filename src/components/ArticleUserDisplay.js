@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class UserDisplayArticle extends Component {
+class ArticleUserDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,16 +34,26 @@ class UserDisplayArticle extends Component {
             <div className=" userDisplay" style={{ marginTop: "50px" }}>
               <div className="has-text-centered">
                 {user !== null ? (
-                  <img
-                    className="userImage"
-                    src={user.image}
-                    alt="profileImage"
-                  />
+                  <div className="level">
+                    <div className="level-item has-text-centered">
+                      <figure className="image is-128x128 is-round has-text-centered">
+                        <img
+                          className="is-rounded"
+                          src={
+                            user.image
+                              ? user.image
+                              : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
+                          }
+                          alt="userImage"
+                        />
+                      </figure>
+                    </div>
+                  </div>
                 ) : (
                   ""
                 )}
 
-                <h3>username</h3>
+                <h3>{user.username}</h3>
 
                 <button className="button is-primary is-pulled-right">
                   Edit Profile Settings
@@ -55,6 +65,7 @@ class UserDisplayArticle extends Component {
                 <ul>
                   <li className="is-active">
                     <a href="/#">My Articles</a>
+                    
                   </li>
 
                   <li>
@@ -101,4 +112,4 @@ class UserDisplayArticle extends Component {
   }
 }
 
-export default UserDisplayArticle;
+export default ArticleUserDisplay;

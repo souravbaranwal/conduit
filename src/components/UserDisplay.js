@@ -34,10 +34,13 @@ class UserDisplay extends Component {
             <ul>
               <li className="is-active">
                 <a href="/#">My Articles</a>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis error delectus nam iure? Pariatur eaque, aliquid earum delectus distinctio dolores cum impedit ex, cupiditate atque aliquam quasi ducimus soluta neque.</p>
+
               </li>
 
               <li>
                 <a href="/#">Favorited Articles</a>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis error delectus nam iure? Pariatur eaque, aliquid earum delectus distinctio dolores cum impedit ex, cupiditate atque aliquam quasi ducimus soluta neque.</p>
               </li>
             </ul>
           </div>

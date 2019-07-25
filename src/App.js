@@ -9,7 +9,7 @@ import CreatePost from "./components/CreatePost";
 import Settings from "./components/Settings";
 import UserDisplay from "./components/UserDisplay";
 import UserContext from "./UserContext";
-import UserDisplayArticle from "./components/UserDisplayArticle";
+import ArticleUserDisplay from "./components/ArticleUserDisplay";
 // import PrivateRoute from "./components/PrivateRoute";
 
 // import Tags from "./components/Tags";
@@ -47,7 +47,7 @@ class App extends React.Component {
               <Route exact path="/" component={Home} />
               <Route path="/signin" component={SignIn} />
               <Route path="/signup" component={SignUp} />
-              <Route path="/articles/user" component={UserDisplayArticle} />
+              <Route path="/articles/user" component={ArticleUserDisplay} />
               <Route path="/createpost" component={CreatePost} />
               <Route path="/settings" component={Settings} />
               <Route path="/user" component={UserDisplay} />
