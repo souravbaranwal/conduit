@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom';
+import UserFavArticle from "./UserFavArticle";
 
 class ArticleUserDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null
+      user: null,
+      active: "myArticle"
     };
   }
 
@@ -64,49 +67,23 @@ class ArticleUserDisplay extends Component {
               <div className="tabs">
                 <ul>
                   <li className="is-active">
-                    <a href="/#">My Articles</a>
-                    
+                    <Link onClick={() =>this.setState({active: "myArticle"})}>My Articles</Link>
                   </li>
 
                   <li>
-                    <a href="/#">Favorited Articles</a>
+                    <Link onClick={() =>this.setState({active: "fav"})}>Favorite Articles</Link>
                   </li>
                 </ul>
               </div>
+             
             </div>
+            {
+              this.state.active === "myArticle" ? <UserFavArticle user = {user.username}/>: "fav article"
+            }
           </>
         ) : (
           ""
         )}
-        {/* 
-        <div className=" userDisplay" style={{ marginTop: "50px" }}>
-          <div className="has-text-centered">
-            {user !== null ? (
-              <img className="userImage" src={user.image} alt="profileImage" />
-            ) : (
-              ""
-            )}
-
-            <h3>username</h3>
-
-            <button className="button is-primary is-pulled-right">
-              Edit Profile Settings
-            </button>
-          </div>
-        </div>
-        <div className="column ">
-          <div className="tabs">
-            <ul>
-              <li className="is-active">
-                <a href="/#">My Articles</a>
-              </li>
-
-              <li>
-                <a href="/#">Favorited Articles</a>
-              </li>
-            </ul>
-          </div>
-        </div> */}
       </>
     );
   }

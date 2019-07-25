@@ -75,7 +75,7 @@ class Articles extends Component {
               <Loader />
             )}
           </div>
-          <div className="column is-2 ">
+          <div className="column is-3 ">
             <Tags />
           </div>
         </div>
