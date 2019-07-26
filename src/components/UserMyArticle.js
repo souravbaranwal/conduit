@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Loader from "./Loader";
 
-class UserFavArticle extends Component {
+class UserMyArticle extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +12,7 @@ class UserFavArticle extends Component {
 
   componentDidMount = () => {
     fetch(
-      `https://conduit.productionready.io/api/articles?author=${
+      `https://conduit.productionready.io/api/articles?favorited=${
         this.props.user
       }`
     )
@@ -87,4 +87,4 @@ class UserFavArticle extends Component {
   }
 }
 
-export default UserFavArticle;
+export default UserMyArticle;

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
+import UserMyArticle from "./UserMyArticle";
 import UserFavArticle from "./UserFavArticle";
 
 class ArticleUserDisplay extends Component {
@@ -63,23 +64,32 @@ class ArticleUserDisplay extends Component {
                 </button>
               </div>
             </div>
-            <div className="column ">
-              <div className="tabs">
-                <ul>
-                  <li className="is-active">
-                    <Link onClick={() =>this.setState({active: "myArticle"})}>My Articles</Link>
-                  </li>
+            <div className="container ">
+              
+                <div className="tabs">
+                  <ul>
+                    <li className="is-active">
+                      <Link
+                        onClick={() => this.setState({ active: "myArticle" })}
+                      >
+                        My Articles
+                      </Link>
+                    </li>
 
-                  <li>
-                    <Link onClick={() =>this.setState({active: "fav"})}>Favorite Articles</Link>
-                  </li>
-                </ul>
-              </div>
-             
+                    <li>
+                      <Link onClick={() => this.setState({ active: "fav" })}>
+                        Favorite Articles
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              
             </div>
-            {
-              this.state.active === "myArticle" ? <UserFavArticle user = {user.username}/>: "fav article"
-            }
+            {this.state.active === "myArticle" ? (
+              <UserMyArticle user={user.username} />
+            ) : (
+              <UserFavArticle/>
+            )}
           </>
         ) : (
           ""

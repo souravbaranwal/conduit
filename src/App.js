@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.scss";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
