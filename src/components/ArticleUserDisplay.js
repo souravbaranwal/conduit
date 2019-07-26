@@ -88,7 +88,7 @@ class ArticleUserDisplay extends Component {
             {this.state.active === "myArticle" ? (
               <UserMyArticle user={user.username} />
             ) : (
-              <UserFavArticle/>
+              <UserFavArticle user={user.username}/>
             )}
           </>
         ) : (
