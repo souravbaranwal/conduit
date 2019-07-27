@@ -60,7 +60,7 @@ class ArticleUserDisplay extends Component {
                 <h3>{user.username}</h3>
 
                 <button className="button is-primary is-pulled-right">
-                  Edit Profile Settings
+                  Follow User
                 </button>
               </div>
             </div>
