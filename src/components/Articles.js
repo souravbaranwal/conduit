@@ -33,7 +33,14 @@ class Articles extends Component {
                     <article className="media">
                       <div className="media-left">
                         <figure className="image is-64x64">
-                          <img src={article.author.image ? article.author.image : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'} alt="authorImage" />
+                          <img
+                            src={
+                              article.author.image
+                                ? article.author.image
+                                : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
+                            }
+                            alt="authorImage"
+                          />
                         </figure>
                       </div>
                       <div className="media-content">
@@ -53,8 +60,18 @@ class Articles extends Component {
                             <small>{article.createdAt.substr(0, 10)}</small>
                             <br />
                           </p>
-                          <p className="is-size-4  is-marginless='true'">
-                            {article.title}
+                          <p className="is-size-4  is-marginless='true' ">
+                            <Link
+                              className="has-text-dark"
+                              to={{
+                                pathname: "/article",
+                                state: {
+                                  username: article.author.username
+                                }
+                              }}
+                            >
+                              {article.title}
+                            </Link>
                           </p>
                           <p className="is-size-6 is-marginless='true'">
                             {article.description}

@@ -30,7 +30,6 @@ class SignIn extends Component {
     })
       .then(res => res.json())
       .then(user => {
-        console.log(user);
         localStorage.setItem("token", user.user.token);
         this.setState({
           user: user

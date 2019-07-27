@@ -9,6 +9,7 @@ import Settings from "./components/Settings";
 import UserDisplay from "./components/UserDisplay";
 import UserContext from "./UserContext";
 import ArticleUserDisplay from "./components/ArticleUserDisplay";
+import Article from "./components/Article";
 // import PrivateRoute from "./components/PrivateRoute";
 
 // import Tags from "./components/Tags";
@@ -50,6 +51,7 @@ class App extends React.Component {
               <Route path="/createpost" component={CreatePost} />
               <Route path="/settings" component={Settings} />
               <Route path="/user" component={UserDisplay} />
+              <Route path="/article" component={Article} />
               <Route render={() => <p>Not found</p>} />
             </Switch>
           </div>

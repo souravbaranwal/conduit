@@ -8,7 +8,8 @@ class ArticleUserDisplay extends Component {
     super(props);
     this.state = {
       user: null,
-      active: "myArticle"
+      active: "myArticle",
+      
     };
   }
 
@@ -26,10 +27,10 @@ class ArticleUserDisplay extends Component {
   }
   render() {
     const user = this.state.user;
-    if (this.state.user) {
-      let { image, bio, createdAt, email, id, username, updatedAt } = user;
-    }
-    console.log(this.state.user);
+    // if (this.state.user) {
+    //   let { image, bio, createdAt, email, id, username, updatedAt } = user;
+    // }
+    // console.log(this.state.user);
 
     return (
       <>
