@@ -32,7 +32,17 @@ class Article extends Component {
             <section className="hero is-dark">
               <div className="hero-body">
                 <div className="container has-text-left">
+                  <Link to={{
+                    pathname: "/article",
+                    state: {
+                      slug: article.slug,
+                      username: article.author.username
+                      
+                    }
+                  }}>
+
                   <h1 className="title">{article.title}</h1>
+                  </Link>
                   <h2 className="subtitle" />
                   <article className="media">
                     <figure className="media-left">
@@ -71,6 +81,11 @@ class Article extends Component {
                 </div>
               </div>
             </section>
+            <div className="container">
+              <p>
+                {article.body}
+              </p>
+            </div>
           </>
         ) : (
           <Loader />

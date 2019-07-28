@@ -61,7 +61,19 @@ class UserMyArticle extends Component {
                           <br />
                         </p>
                         <p className="is-size-4  is-marginless='true'">
-                          {article.title}
+                        <Link
+                              className="has-text-dark"
+                              to={{
+                                pathname: "/article",
+                                state: {
+                                  slug: article.slug,
+                                  username: article.author.username
+
+                                }
+                              }}
+                            >
+                              {article.title}
+                            </Link>
                         </p>
                         <p className="is-size-6 is-marginless='true'">
                           {article.description}

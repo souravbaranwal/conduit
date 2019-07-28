@@ -56,7 +56,7 @@ class Articles extends Component {
                             >
                               <strong>{article.author.username}</strong>{" "}
                             </Link>
-                            <small>at</small>{" "}
+                            <small>created at</small>{" "}
                             <small>{article.createdAt.substr(0, 10)}</small>
                             <br />
                           </p>
