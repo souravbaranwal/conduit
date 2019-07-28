@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import UserMyArticle from "./UserMyArticle";
 import UserFavArticle from "./UserFavArticle";
+import Loader from "./Loader";
 
 class ArticleUserDisplay extends Component {
   constructor(props) {
@@ -27,10 +28,6 @@ class ArticleUserDisplay extends Component {
   }
   render() {
     const user = this.state.user;
-    // if (this.state.user) {
-    //   let { image, bio, createdAt, email, id, username, updatedAt } = user;
-    // }
-    // console.log(this.state.user);
 
     return (
       <>
@@ -38,7 +35,7 @@ class ArticleUserDisplay extends Component {
           <>
             <div className=" userDisplay" style={{ marginTop: "50px" }}>
               <div className="has-text-centered">
-                {user !== null ? (
+                
                   <div className="level">
                     <div className="level-item has-text-centered">
                       <figure className="image is-128x128 is-round has-text-centered">
@@ -54,9 +51,7 @@ class ArticleUserDisplay extends Component {
                       </figure>
                     </div>
                   </div>
-                ) : (
-                  ""
-                )}
+                
 
                 <h3>{user.username}</h3>
 
@@ -69,7 +64,7 @@ class ArticleUserDisplay extends Component {
               
                 <div className="tabs">
                   <ul>
-                    <li className="is-active">
+                    <li>
                       <Link
                         onClick={() => this.setState({ active: "myArticle" })}
                       >
@@ -93,7 +88,7 @@ class ArticleUserDisplay extends Component {
             )}
           </>
         ) : (
-          ""
+          <Loader/>
         )}
       </>
     );

@@ -66,7 +66,9 @@ class Articles extends Component {
                               to={{
                                 pathname: "/article",
                                 state: {
+                                  slug: article.slug,
                                   username: article.author.username
+
                                 }
                               }}
                             >

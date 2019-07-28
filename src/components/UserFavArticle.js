@@ -12,7 +12,7 @@ class UserFavArticle extends Component {
 
   componentDidMount = () => {
     fetch(
-      `https://conduit.productionready.io/api/articles?author=${
+      `https://conduit.productionready.io/api/articles?favorited=${
         this.props.user
       }`
     )

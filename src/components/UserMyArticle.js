@@ -12,7 +12,7 @@ class UserMyArticle extends Component {
 
   componentDidMount = () => {
     fetch(
-      `https://conduit.productionready.io/api/articles?favorited=${
+      `https://conduit.productionready.io/api/articles?author=${
         this.props.user
       }`
     )
