@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import UserMyArticle from "./UserMyArticle";
 import UserFavArticle from "./UserFavArticle";
 import Loader from "./Loader";
@@ -9,8 +9,7 @@ class ArticleUserDisplay extends Component {
     super(props);
     this.state = {
       user: null,
-      active: "myArticle",
-      
+      active: "myArticle"
     };
   }
 
@@ -35,23 +34,21 @@ class ArticleUserDisplay extends Component {
           <>
             <div className=" userDisplay" style={{ marginTop: "50px" }}>
               <div className="has-text-centered">
-                
-                  <div className="level">
-                    <div className="level-item has-text-centered">
-                      <figure className="image is-128x128 is-round has-text-centered">
-                        <img
-                          className="is-rounded"
-                          src={
-                            user.image
-                              ? user.image
-                              : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
-                          }
-                          alt="userImage"
-                        />
-                      </figure>
-                    </div>
+                <div className="level">
+                  <div className="level-item has-text-centered">
+                    <figure className="image is-128x128 is-round has-text-centered">
+                      <img
+                        className="is-rounded"
+                        src={
+                          user.image
+                            ? user.image
+                            : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
+                        }
+                        alt="userImage"
+                      />
+                    </figure>
                   </div>
-                
+                </div>
 
                 <h3>{user.username}</h3>
 
@@ -61,34 +58,37 @@ class ArticleUserDisplay extends Component {
               </div>
             </div>
             <div className="container ">
-              
-                <div className="tabs">
-                  <ul>
-                    <li>
-                      <Link
-                        onClick={() => this.setState({ active: "myArticle" })}
-                      >
-                        My Articles
-                      </Link>
-                    </li>
+              <div className="tabs">
+                <ul>
+                  <li>
+                    <NavLink
+                      activeClassName="is-active"
+                      
+                      onClick={() => this.setState({ active: "myArticle" })}
+                    >
+                      My Articles
+                    </NavLink>
+                  </li>
 
-                    <li>
-                      <Link onClick={() => this.setState({ active: "fav" })}>
-                        Favorite Articles
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              
+                  <li>
+                    <NavLink
+                      activeClassName="is-active"
+                      onClick={() => this.setState({ active: "fav" })}
+                    >
+                      Favorite Articles
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
             </div>
             {this.state.active === "myArticle" ? (
               <UserMyArticle user={user.username} />
             ) : (
-              <UserFavArticle user={user.username}/>
+              <UserFavArticle user={user.username} />
             )}
           </>
         ) : (
-          <Loader/>
+          <Loader />
         )}
       </>
     );
