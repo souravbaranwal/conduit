@@ -62,7 +62,7 @@ class ArticleUserDisplay extends Component {
                 <ul>
                   <li>
                     <NavLink
-                      activeClassName="is-active"
+                      activeClassName="is-active activeLink"
                       
                       onClick={() => this.setState({ active: "myArticle" })}
                     >
@@ -72,7 +72,7 @@ class ArticleUserDisplay extends Component {
 
                   <li>
                     <NavLink
-                      activeClassName="is-active"
+                      activeClassName="is-active activeLink"
                       onClick={() => this.setState({ active: "fav" })}
                     >
                       Favorite Articles

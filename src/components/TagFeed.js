@@ -1,43 +1,32 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Link, NavLink } from "react-router-dom";
-import "./articles.scss";
-import Tags from "./Tags";
 import Loader from "./Loader";
-import TagFeed from "./TagFeed";
 
 
-class Articles extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { articles: [], inputTag: null };
-  }
-
-  handleTag = tag => {
-    const newTag = tag;
-    console.log(newTag, "before", this.state);
-    this.setState({ inputTag: newTag });
-    console.log(newTag, "after", this.state);
-  };
-
-  componentDidMount = () => {
-    fetch("https://conduit.productionready.io/api/articles")
+class TagFeed extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { articles: []};
+    }
+    componentDidMount() {
+        let {selectedTag} = this.props.selectedTag;
+        fetch(`https://conduit.productionready.io/api/articles?tag=${selectedTag}`)
       .then(res => res.json())
       .then(articles => this.setState({ articles: articles }));
-  };
-
-  render() {
-    const { articles } = this.state.articles;
-    return (
-      <>
-        <p>{this.state.tag}</p>
-        <div className="columns">
-          <div className="column is-9 ">
-            {this.state.inputTag == null ? (
-              <>
+        
+    }
+    render() {
+        const { articles } = this.state.articles;
+        return (
+            
+            <>
                 <div className="feed-section">
                   <h4 className="is-size-4">Global Feed</h4>
                   <NavLink activeClassName="is-active activeLink">
                     Global Feed
+                  </NavLink>
+                  <NavLink activeClassName="is-active activeLink">
+                   # {this.props.selectedTag} 
                   </NavLink>
                   <hr />
                 </div>
@@ -111,19 +100,10 @@ class Articles extends Component {
                   <Loader />
                 )}
               </>
-            ) : (
-              <>
-                <TagFeed selectedTag= {this.state.inputTag}/>
-              </>
-            )}
-          </div>
-          <div className="column is-3 ">
-            <Tags handleTag={this.handleTag} />
-          </div>
-        </div>
-      </>
-    );
-  }
+            
+            
+        );
+    }
 }
 
-export default Articles;
+export default TagFeed;
