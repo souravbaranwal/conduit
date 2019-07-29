@@ -22,7 +22,6 @@ class UserFavArticle extends Component {
 
   render() {
     let { articles } = this.state;
-    console.log(articles);
     return (
       <>
         {articles ? (
