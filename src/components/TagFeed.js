@@ -9,14 +9,25 @@ class TagFeed extends Component {
         this.state = { articles: []};
     }
     componentDidMount() {
-        let {selectedTag} = this.props.selectedTag;
+        let {selectedTag} = this.props;
+        console.log(selectedTag, 'in TagFeed');
+
         fetch(`https://conduit.productionready.io/api/articles?tag=${selectedTag}`)
       .then(res => res.json())
-      .then(articles => this.setState({ articles: articles }));
+      .then(articles => this.setState({ articles: articles.articles }));
+        
+    }
+    componentDidUpdate() {
+        let {selectedTag} = this.props;
+        console.log(selectedTag, 'in TagFeed');
+        
+        fetch(`https://conduit.productionready.io/api/articles?tag=${selectedTag}`)
+      .then(res => res.json())
+      .then(articles => this.setState({ articles: articles.articles }));
         
     }
     render() {
-        const { articles } = this.state.articles;
+        const { articles } = this.state;
         return (
             
             <>

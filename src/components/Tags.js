@@ -33,7 +33,8 @@ class Tags extends Component {
                 key={index}
                 value = {tag}
                 onClick = {(e) => {
-                  e.preventDefault();
+                  
+                  console.log(tag, 'this is tags.js for checking tag');
                   this.props.handleTag(tag)
                 }}
               >

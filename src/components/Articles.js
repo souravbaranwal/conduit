@@ -5,7 +5,6 @@ import Tags from "./Tags";
 import Loader from "./Loader";
 import TagFeed from "./TagFeed";
 
-
 class Articles extends Component {
   constructor(props) {
     super(props);
@@ -14,9 +13,9 @@ class Articles extends Component {
 
   handleTag = tag => {
     const newTag = tag;
-    console.log(newTag, "before", this.state);
-    this.setState({ inputTag: newTag });
-    console.log(newTag, "after", this.state);
+    this.setState({ inputTag: newTag }, () =>{
+      console.log(newTag, "after", this.state);
+    });
   };
 
   componentDidMount = () => {
@@ -113,7 +112,10 @@ class Articles extends Component {
               </>
             ) : (
               <>
-                <TagFeed selectedTag= {this.state.inputTag}/>
+              {console.log(this.state.inputTag, 'before sending to tagfeed')}
+              {
+                this.state.inputTag ? <TagFeed selectedTag={this.state.inputTag} /> : ''
+              }            
               </>
             )}
           </div>
