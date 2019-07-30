@@ -13,7 +13,7 @@ class Articles extends Component {
 
   handleTag = tag => {
     const newTag = tag;
-    this.setState({ inputTag: newTag }, () =>{
+    this.setState({ inputTag: newTag }, () => {
       console.log(newTag, "after", this.state);
     });
   };
@@ -22,6 +22,10 @@ class Articles extends Component {
     fetch("https://conduit.productionready.io/api/articles")
       .then(res => res.json())
       .then(articles => this.setState({ articles: articles }));
+  };
+
+  handleGlobalFeedSwitch = () => {
+    this.setState({ inputTag: null });
   };
 
   render() {
@@ -34,8 +38,10 @@ class Articles extends Component {
             {this.state.inputTag == null ? (
               <>
                 <div className="feed-section">
-                  <h4 className="is-size-4">Global Feed</h4>
-                  <NavLink activeClassName="is-active activeLink">
+                  <NavLink
+                    className="button is-primary"
+                    activeClassName="active"
+                  >
                     Global Feed
                   </NavLink>
                   <hr />
@@ -112,10 +118,14 @@ class Articles extends Component {
               </>
             ) : (
               <>
-              {console.log(this.state.inputTag, 'before sending to tagfeed')}
-              {
-                this.state.inputTag ? <TagFeed selectedTag={this.state.inputTag} /> : ''
-              }            
+                {this.state.inputTag ? (
+                  <TagFeed
+                    handleGlobalFeedSwitch={this.handleGlobalFeedSwitch}
+                    selectedTag={this.state.inputTag}
+                  />
+                ) : (
+                  ""
+                )}
               </>
             )}
           </div>

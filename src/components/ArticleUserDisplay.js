@@ -58,28 +58,20 @@ class ArticleUserDisplay extends Component {
               </div>
             </div>
             <div className="container ">
-              <div className="tabs">
-                <ul>
-                  <li>
-                    <NavLink
-                      activeClassName="is-active activeLink"
-                      
-                      onClick={() => this.setState({ active: "myArticle" })}
-                    >
-                      My Articles
-                    </NavLink>
-                  </li>
-
-                  <li>
-                    <NavLink
-                      activeClassName="is-active activeLink"
-                      onClick={() => this.setState({ active: "fav" })}
-                    >
-                      Favorite Articles
-                    </NavLink>
-                  </li>
-                </ul>
-              </div>
+              <NavLink
+                activeClassName="active "
+                className="button is-primary"
+                onClick={() => this.setState({ active: "myArticle" })}
+              >
+                My Articles
+              </NavLink>{" "}
+              <NavLink
+                activeClassName="active "
+                className="button is-primary"
+                onClick={() => this.setState({ active: "fav" })}
+              >
+                Favorite Articles
+              </NavLink>{" "}
             </div>
             {this.state.active === "myArticle" ? (
               <UserMyArticle user={user.username} />

@@ -8,7 +8,8 @@ class SignIn extends Component {
     this.state = {
       user: null,
       email: "",
-      password: ""
+      password: "",
+      error: ""
     };
   }
   static contextType = UserContext;
@@ -30,13 +31,21 @@ class SignIn extends Component {
     })
       .then(res => res.json())
       .then(user => {
-        localStorage.setItem("token", user.user.token);
-        this.setState({
-          user: user
-        });
-        this.context.updateUser(user);
-        this.props.history.push("/");
-      });
+        if (user.user) {
+          localStorage.setItem("token", user.user.token);
+          this.setState({
+            user: user
+          });
+          this.context.updateUser(user);
+          this.props.history.push("/");
+        } else {
+          const errorObj = user.errors;
+          for (let key in errorObj) {
+            this.setState({ error: `${key} ${errorObj[key]}` });
+          }
+        }
+      })
+      .catch(err => console.log(err, "inerr"));
   };
 
   render() {
@@ -79,6 +88,7 @@ class SignIn extends Component {
               </span>
             </p>
           </div>
+          <p>{this.state.error}</p>
           <div className="field">
             <p className="control">
               <button onClick={this.handleClick} className="button is-success">

@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -21,8 +23,6 @@
   background: #ff6d6d !important ;
 }
 
-
-   
 .banner {
   -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -42,9 +42,9 @@
 }
 
 // ActiveUserDisplay
-.activeLink {
-  color: red;
-}
+// .activeLink {
+//   color: red;
+// }
 
 // Loader Css
 .lds-ellipsis {
