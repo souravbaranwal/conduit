@@ -34,7 +34,7 @@ class TagFeed extends Component {
       <>
         <div className="feed-section">
           <NavLink
-            className="button is-primary"
+            className="button "
             activeClassName="active"
             onClick={this.props.handleGlobalFeedSwitch}
           >
