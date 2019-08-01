@@ -38,12 +38,18 @@ class Articles extends Component {
             {this.state.inputTag == null ? (
               <>
                 <div className="feed-section">
-                  <NavLink
-                    className="button is-primary"
-                    activeClassName="active"
-                  >
-                    Global Feed
-                  </NavLink>
+                  <div className="feed-section">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <NavLink
+                          className="button is-dark"
+                          activeClassName="active"
+                        >
+                          Global Feed
+                        </NavLink>
+                      </p>
+                    </div>
+                  </div>
                   <hr />
                 </div>
                 {articles ? (

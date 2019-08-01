@@ -36,7 +36,7 @@ class TagFeed extends Component {
           <div class="field is-grouped">
             <p class="control">
               <NavLink
-                className="button "
+                className="button is-primary"
                 activeClassName="active"
                 onClick={this.props.handleGlobalFeedSwitch}
               >
@@ -44,7 +44,7 @@ class TagFeed extends Component {
               </NavLink>
             </p>
             <p class="control">
-              <NavLink className="button is-primary" activeClassName="active">
+              <NavLink className="button is-dark" activeClassName="active">
                 # {this.props.selectedTag}
               </NavLink>
             </p>

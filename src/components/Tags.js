@@ -23,28 +23,35 @@ class Tags extends Component {
     const { tags } = this.state;
     return (
       <>
-        <h4>Popular tags</h4>
-
-        {tags ? (
-          tags.map((tag, index) => {
-            return (
-              <a
-                className="button is-rounded is-small is-rounded is-dark"
-                key={index}
-                value={tag}
-                href="/#"
-                onClick={e => {
-                  console.log(tag, "this is tags.js for checking tag");
-                  this.props.handleTag(tag);
-                }}
-              >
-                {tag}
-              </a>
-            );
-          })
-        ) : (
-          <Loader />
-        )}
+        <div className="block">
+          <article className="message is-dark">
+            <div className="message-header">
+              <p className="subtitle has-text-light">Popular tags</p>
+            </div>
+            <div className="message-body tags">
+              {tags ? (
+                tags.map((tag, index) => {
+                  return (
+                    <a
+                      className="tag is-primary"
+                      key={index}
+                      value={tag}
+                      href="/#"
+                      onClick={e => {
+                        console.log(tag, "this is tags.js for checking tag");
+                        this.props.handleTag(tag);
+                      }}
+                    >
+                      {tag}
+                    </a>
+                  );
+                })
+              ) : (
+                <Loader />
+              )}
+            </div>
+          </article>
+        </div>
       </>
     );
   }
