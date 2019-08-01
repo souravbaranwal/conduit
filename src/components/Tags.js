@@ -18,7 +18,7 @@ class Tags extends Component {
         })
       );
   };
-  
+
   render() {
     const { tags } = this.state;
     return (
@@ -31,11 +31,11 @@ class Tags extends Component {
               <a
                 className="button is-rounded is-small is-rounded is-dark"
                 key={index}
-                value = {tag}
-                onClick = {(e) => {
-                  
-                  console.log(tag, 'this is tags.js for checking tag');
-                  this.props.handleTag(tag)
+                value={tag}
+                href="/#"
+                onClick={e => {
+                  console.log(tag, "this is tags.js for checking tag");
+                  this.props.handleTag(tag);
                 }}
               >
                 {tag}

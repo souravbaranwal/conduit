@@ -19,7 +19,7 @@ const LoggedInNav = props => {
                 className="button is-dark"
                 to="/"
               >
-                Home
+                <span>Home</span>
               </NavLink>
               <NavLink
                 activeClassName="active "

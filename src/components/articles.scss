@@ -1,20 +1,22 @@
 .infoBar {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .authorInfo {
-    width: 300px;
-    height: 120px;
-    
+  width: 300px;
+  height: 120px;
 }
 
 .avatar {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .active :focus {
-    outline:none;
+  outline: none;
+}
+.feed-section {
+  margin-top: 20px;
 }

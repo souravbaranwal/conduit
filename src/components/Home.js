@@ -17,6 +17,7 @@ class Home extends Component {
             </div>
           </div>
         </section>
+
         <div className="articles container">
           <Articles />
         </div>

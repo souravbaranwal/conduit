@@ -33,16 +33,23 @@ class TagFeed extends Component {
     return (
       <>
         <div className="feed-section">
-          <NavLink
-            className="button "
-            activeClassName="active"
-            onClick={this.props.handleGlobalFeedSwitch}
-          >
-            Global Feed
-          </NavLink>
-          <NavLink className="button is-primary" activeClassName="active">
-            # {this.props.selectedTag}
-          </NavLink>
+          <div class="field is-grouped">
+            <p class="control">
+              <NavLink
+                className="button "
+                activeClassName="active"
+                onClick={this.props.handleGlobalFeedSwitch}
+              >
+                Global Feed
+              </NavLink>
+            </p>
+            <p class="control">
+              <NavLink className="button is-primary" activeClassName="active">
+                # {this.props.selectedTag}
+              </NavLink>
+            </p>
+          </div>
+
           <hr />
         </div>
         {articles ? (

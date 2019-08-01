@@ -32,18 +32,17 @@ class Article extends Component {
             <section className="hero is-dark">
               <div className="hero-body">
                 <div className="container has-text-left">
-                  <Link to={{
-                    pathname: "/article",
-                    state: {
-                      slug: article.slug,
-                      username: article.author.username
-                      
-                    }
-                  }}>
-
-                  <h1 className="title">{article.title}</h1>
+                  <Link
+                    to={{
+                      pathname: "/article",
+                      state: {
+                        slug: article.slug,
+                        username: article.author.username
+                      }
+                    }}
+                  >
+                    <h1 className="title">{article.title}</h1>
                   </Link>
-                  <h2 className="subtitle" />
                   <article className="media">
                     <figure className="media-left">
                       <p className="image is-32x32 is-round">
@@ -70,8 +69,7 @@ class Article extends Component {
                             }}
                           >
                             {article.author.username}
-                          </Link>
-                          {" "}
+                          </Link>{" "}
                           <small>created at</small>{" "}
                           <small>{article.createdAt.substr(0, 10)}</small>
                         </p>
@@ -82,9 +80,7 @@ class Article extends Component {
               </div>
             </section>
             <div className="container">
-              <p>
-                {article.body}
-              </p>
+              <p>{article.body}</p>
             </div>
           </>
         ) : (
