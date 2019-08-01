@@ -16,28 +16,28 @@ const LoggedInNav = props => {
               <NavLink
                 exact
                 activeClassName="active "
-                className="button is-dark"
+                className="button is-primary"
                 to="/"
               >
                 <span>Home</span>
               </NavLink>
               <NavLink
                 activeClassName="active "
-                className="button is-dark"
+                className="button is-primary"
                 to="/createpost"
               >
                 New Post
               </NavLink>
               <NavLink
                 activeClassName="active "
-                className="button is-dark"
+                className="button is-primary"
                 to="/settings"
               >
                 Settings
               </NavLink>
               <NavLink
                 activeClassName="active "
-                className="button is-dark"
+                className="button is-primary"
                 to="/user"
               >
                 {props.user ? props.user.username : null}

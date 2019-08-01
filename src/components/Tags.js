@@ -24,7 +24,7 @@ class Tags extends Component {
     return (
       <>
         <div className="block">
-          <article className="message is-dark">
+          <article className="message is-primary">
             <div className="message-header">
               <p className="subtitle has-text-light">Popular tags</p>
             </div>
@@ -33,7 +33,7 @@ class Tags extends Component {
                 tags.map((tag, index) => {
                   return (
                     <a
-                      className="tag is-primary"
+                      className="tag is-dark"
                       key={index}
                       value={tag}
                       href="/#"

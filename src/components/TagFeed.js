@@ -52,7 +52,7 @@ class TagFeed extends Component {
 
           <hr />
         </div>
-        {articles ? (
+        {this.state.articles.length > 0 ? (
           articles.map((article, index) => {
             return (
               <div className="box" key={index}>
