@@ -7,7 +7,9 @@ const LoggedInNav = props => {
     <div className="container">
       <div className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <p>Conduit</p>
+          <NavLink to="/">
+            <p>Conduit</p>
+          </NavLink>
         </div>
 
         <div className="navbar-end">

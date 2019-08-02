@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import UserContext from "../UserContext";
 
 class Settings extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Settings extends Component {
       image: ""
     };
   }
+  static contextType = UserContext;
 
   handleChange = ({ target: { name, value } }) => {
     this.setState({
@@ -42,7 +44,7 @@ class Settings extends Component {
 
   handleLogout = () => {
     localStorage.removeItem("token");
-
+    this.context.updateUser(null);
     this.props.history.push("/");
   };
 

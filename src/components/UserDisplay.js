@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import UserMyArticle from "./UserMyArticle";
 import UserFavArticle from "./UserFavArticle";
-import Loader from "./Loader";
 import "./userDisplay.scss";
 import UserContext from "../UserContext";
 
@@ -15,7 +14,8 @@ class UserDisplay extends Component {
   static contextType = UserContext;
 
   render() {
-    const user = this.context.user;
+    const user = this.context.user || {};
+    // localStorage.setItem("userData", JSON.parse(`${user}`));
 
     return (
       <>
@@ -27,7 +27,7 @@ class UserDisplay extends Component {
                   <img
                     className="is-rounded"
                     src={
-                      user.image != null
+                      user.image
                         ? user.image
                         : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
                     }
@@ -44,13 +44,7 @@ class UserDisplay extends Component {
                 </button> */}
           </div>
         </div>
-        <div className="level">
-          <div className="level-right">
-            <div className="level-item">
-              <div className="button">Edit User</div>
-            </div>
-          </div>
-        </div>
+
         <div className="container" style={{ marginBottom: "20px" }}>
           <NavLink
             activeClassName="active "

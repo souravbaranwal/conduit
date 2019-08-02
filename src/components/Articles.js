@@ -88,7 +88,7 @@ class Articles extends Component {
                                 <small>{article.createdAt.substr(0, 10)}</small>
                                 <br />
                               </p>
-                              <p className="is-size-4  is-marginless='true' ">
+                              <p className="is-size-5 has-text-weight-semibold  is-marginless='true' ">
                                 <Link
                                   className="has-text-dark"
                                   to={{
