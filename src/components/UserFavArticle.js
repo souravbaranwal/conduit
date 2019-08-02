@@ -33,6 +33,7 @@ class UserFavArticle extends Component {
                     <div className="media-left">
                       <figure className="image is-64x64">
                         <img
+                          className="is-rounded"
                           src={
                             article.author.image
                               ? article.author.image

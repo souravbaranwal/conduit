@@ -28,12 +28,13 @@ class UserMyArticle extends Component {
         {articles ? (
           articles.map((article, index) => {
             return (
-              <div className="container">
+              <div className="container" style={{ marginBottom: "30px" }}>
                 <div className="box" key={index}>
                   <article className="media">
                     <div className="media-left">
                       <figure className="image is-64x64">
                         <img
+                          className="is-rounded"
                           src={
                             article.author.image
                               ? article.author.image
@@ -48,7 +49,7 @@ class UserMyArticle extends Component {
                         <p className=" is-marginless">
                           <Link
                             to={{
-                              pathname: "/articles/user",
+                              pathname: "/articles/user"
                               // state: {
                               //   username: article.author.username
                               // }
@@ -61,19 +62,18 @@ class UserMyArticle extends Component {
                           <br />
                         </p>
                         <p className="is-size-4  is-marginless='true'">
-                        <Link
-                              className="has-text-dark"
-                              to={{
-                                pathname: "/article",
-                                state: {
-                                  slug: article.slug,
-                                  username: article.author.username
-
-                                }
-                              }}
-                            >
-                              {article.title}
-                            </Link>
+                          <Link
+                            className="has-text-dark"
+                            to={{
+                              pathname: "/article",
+                              state: {
+                                slug: article.slug,
+                                username: article.author.username
+                              }
+                            }}
+                          >
+                            {article.title}
+                          </Link>
                         </p>
                         <p className="is-size-6 is-marginless='true'">
                           {article.description}

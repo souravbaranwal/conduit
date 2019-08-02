@@ -41,7 +41,8 @@ class Settings extends Component {
   };
 
   handleLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem("token");
+
     this.props.history.push("/");
   };
 
@@ -114,7 +115,7 @@ class Settings extends Component {
                   Update Settings
                 </button>
               </p>
-              <p className="control" style={{marginTop: '10px'}}>
+              <p className="control" style={{ marginTop: "10px" }}>
                 <button
                   onClick={this.handleLogout}
                   className="button is-success"

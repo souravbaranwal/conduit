@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import UserMyArticle from "./UserMyArticle";
+import UserFavArticle from "./UserFavArticle";
+import Loader from "./Loader";
 import "./userDisplay.scss";
 import UserContext from "../UserContext";
 
@@ -12,39 +16,62 @@ class UserDisplay extends Component {
 
   render() {
     const user = this.context.user;
+
     return (
       <>
         <div className=" userDisplay" style={{ marginTop: "50px" }}>
           <div className="has-text-centered">
-            {user !== null ? (
-              <img className="userImage" src={user.image} alt="profileImage" />
-            ) : (
-              ""
-            )}
+            <div className="level">
+              <div className="level-item has-text-centered">
+                <figure className="image is-128x128 is-round has-text-centered">
+                  <img
+                    className="is-rounded"
+                    src={
+                      user.image != null
+                        ? user.image
+                        : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
+                    }
+                    alt="userImage"
+                  />
+                </figure>
+              </div>
+            </div>
 
-            <h3>User Name Here</h3>
+            <h3 className="subtitle">{user.username}</h3>
 
-            <button className="button is-primary is-pulled-right">
-              Edit Profile Settings
-            </button>
+            {/* <button className="button is-primary is-pulled-right">
+                  Follow User
+                </button> */}
           </div>
         </div>
-        <div className="column ">
-          <div className="tabs">
-            <ul>
-              <li className="is-active">
-                <a href="/#">My Articles</a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis error delectus nam iure? Pariatur eaque, aliquid earum delectus distinctio dolores cum impedit ex, cupiditate atque aliquam quasi ducimus soluta neque.</p>
-
-              </li>
-
-              <li>
-                <a href="/#">Favorited Articles</a>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis error delectus nam iure? Pariatur eaque, aliquid earum delectus distinctio dolores cum impedit ex, cupiditate atque aliquam quasi ducimus soluta neque.</p>
-              </li>
-            </ul>
+        <div className="level">
+          <div className="level-right">
+            <div className="level-item">
+              <div className="button">Edit User</div>
+            </div>
           </div>
         </div>
+        <div className="container" style={{ marginBottom: "20px" }}>
+          <NavLink
+            activeClassName="active "
+            className="button is-primary"
+            onClick={() => this.setState({ active: "myArticle" })}
+          >
+            My Articles
+          </NavLink>{" "}
+          <NavLink
+            activeClassName="active "
+            className="button is-primary"
+            onClick={() => this.setState({ active: "fav" })}
+          >
+            Favorite Articles
+          </NavLink>{" "}
+        </div>
+        {this.state.active === "myArticle" ? (
+          <UserMyArticle user={user.username} />
+        ) : (
+          <UserFavArticle user={user.username} />
+        )}
       </>
     );
   }
