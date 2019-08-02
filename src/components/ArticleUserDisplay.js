@@ -52,12 +52,12 @@ class ArticleUserDisplay extends Component {
 
                 <h3>{user.username}</h3>
 
-                <button className="button is-primary is-pulled-right">
+                {/* <button className="button is-primary is-pulled-right">
                   Follow User
-                </button>
+                </button> */}
               </div>
             </div>
-            <div className="container ">
+            <div className="container" style={{ marginBottom: "20px" }}>
               <NavLink
                 activeClassName="active "
                 className="button is-primary"

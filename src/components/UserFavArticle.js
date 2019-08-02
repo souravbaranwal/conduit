@@ -47,7 +47,7 @@ class UserFavArticle extends Component {
                         <p className=" is-marginless">
                           <Link
                             to={{
-                              pathname: "/articles/user",
+                              pathname: "/articles/user"
                               // state: {
                               //   username: article.author.username
                               // }

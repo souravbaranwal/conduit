@@ -42,7 +42,7 @@ class SignUp extends Component {
     return (
       <>
         <div className=" container has-text-centered column is-half is-offset-one-quarter">
-          <h2>Sign up</h2>
+          <h2 className="subtitle">Sign up</h2>
           <Link className="is-primary" to="/signin">
             Have an account?
           </Link>

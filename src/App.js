@@ -1,6 +1,6 @@
 import React from "react";
-import "./CustomVariables.scss";
 import "./App.scss";
+import "./CustomVariables.scss";
 
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import SignUp from "./components/SignUp";
