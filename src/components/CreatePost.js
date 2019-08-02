@@ -32,9 +32,9 @@ class CreatePost extends Component {
       body: JSON.stringify({ article: data })
     })
       .then(res => res.json())
-      .then(article => {console.log(article);
-        this.props.history.push("/");
-      
+      .then(article => {
+        console.log(article);
+        this.props.history.push("/user");
       });
   };
 

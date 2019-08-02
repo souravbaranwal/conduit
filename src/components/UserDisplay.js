@@ -15,7 +15,6 @@ class UserDisplay extends Component {
 
   render() {
     const user = this.context.user || {};
-    // localStorage.setItem("userData", JSON.parse(`${user}`));
 
     return (
       <>
